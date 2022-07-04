@@ -1,0 +1,37 @@
+<div class="step">
+  <div class="active">
+    
+  </div>
+  <div class="active">
+    
+  </div>
+  <div class="active">
+    
+  </div>
+</div>
+<form [formGroup]="message">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" aria-describedby="title" formControlName="title">
+    </div>
+    <div *ngIf="!message.get('title')!.valid && !message.get('title')!.untouched">
+      <div class="alert alert-danger">Title is required</div>
+  </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descriptions</label>
+      <input type="email" class="form-control" id="description" aria-describedby="description" formControlName="description">
+    </div>
+    <div *ngIf="!message.get('description')!.valid && !message.get('description')!.untouched">
+      <div class="alert alert-danger">Description is required</div>
+  </div>
+    <div class="mb-3 ">
+      <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+      <button type="submit" class="btn btn-primary " 
+      style="float: right;" (click)="onSubmit()">Submit</button>
+    </div>
+    
+  </form>
+  <br>
+  <div class="progress" style="height: 30px;">
+    <div class="progress-bar" role="progressbar" [style.width]="width+'%'" aria-valuemin="0" aria-valuemax="100">{{width}}%</div>
+  </div>

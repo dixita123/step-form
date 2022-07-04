@@ -1,0 +1,56 @@
+<div class="step">
+  <div class="active">
+    
+  </div>
+  <div>
+    
+  </div>
+  <div>
+    
+  </div>
+</div>
+<form [formGroup]="contact" >
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name"
+     formControlName="name"
+     name="name">
+     
+  </div>
+  <div *ngIf="!contact.get('name')!.valid && !contact.get('name')!.untouched">
+    <div class="alert alert-danger">Name is required</div>
+</div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" 
+    class="form-control"
+     id="email" 
+     name="email"
+     aria-describedby="email"
+     formControlName="email">
+  </div>
+  <div *ngIf="!contact.get('email')!.valid && !contact.get('email')!.untouched">
+    <div class="alert alert-danger">Email is required</div>
+ </div>
+  <div class="mb-3">
+    <label for="number" class="form-label">Mobile Number</label>
+    <input type="number" class="form-control" id="number"
+     formControlName="number"
+    name="number">
+  </div>
+  <div *ngIf="!contact.get('number')!.valid && !contact.get('number')!.untouched" >
+    <div class="alert alert-danger">Mobile Number is required</div>
+</div>
+  <div class="mb-3 ">
+    <button type="submit" class="btn btn-primary " 
+    style="float: right;"
+    (click)="next()"
+    [disabled]="!contact.valid">Next</button>
+  </div>
+  
+</form>
+
+<br>
+<div class="progress" style="height: 30px;">
+  <div class="progress-bar" role="progressbar" [style.width]="width+'%'" aria-valuemin="0" aria-valuemax="100">{{width}}%</div>
+</div>
